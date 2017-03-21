@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 setup(
     name = 'GenOpt',
     py_modules = ['GenOpt'],
@@ -7,6 +7,7 @@ setup(
     author = 'Kevin Lioi',
     author_email = 'kevin.a.lioi@gmail.com',
     url = 'https://github.com/kevinlioi/GenOpt', 
+    license='MIT',
     install_requires=[
         'numpy',
         'random',
@@ -16,4 +17,5 @@ setup(
     download_url = 'https://github.com/kevinlioi/GenOpt/archive/1.0.0.tar.gz',
     keywords = ['genetic', 'optimization', 'algorithm'],
     classifiers = [],
+    
 )
