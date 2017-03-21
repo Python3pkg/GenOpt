@@ -7,8 +7,8 @@ InitialSolutions = [numpy.array([numpy.random.uniform(), numpy.random.uniform(),
 InitialSolutions = numpy.vstack([10*z/sum(z) for z in InitialSolutions])
 G2 = GeneticOptimizer(InitialSolutions = InitialSolutions, 
                      Objective = BoothsFnc, 
-                     ub = [10,10,10,10], 
-                     lb = [0,0,0,0], 
+                     ub = [10,10,10], 
+                     lb = [0,0,0], 
                      Sense = 'min', 
                      MutationType = 'Sum Constraint',
                      Crossover = 'Weighted Average')

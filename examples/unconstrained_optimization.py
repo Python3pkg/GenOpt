@@ -8,8 +8,8 @@ InitialSolutions = numpy.vstack([numpy.array([numpy.random.uniform(),
                                               numpy.random.uniform()]) for i in range(1000)])
 G1 = GeneticOptimizer(InitialSolutions = InitialSolutions, 
                      Objective = StyblinskiTang_Fnc, 
-                     ub = [5,5,5,5], 
-                     lb = [-5,-5,-5,-5], 
+                     ub = [5,5], 
+                     lb = [-5,-5], 
                      Sense = 'min', 
                      Crossover = 'Quadratic')
 R = G1.GA()

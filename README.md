@@ -49,8 +49,8 @@ Contains a *class* for optimizing analytic functions utilizing a **genetic algor
                                                 numpy.random.uniform()]) for i in range(1000)])
   G1 = GeneticOptimizer(InitialSolutions = InitialSolutions, 
                        Objective = StyblinskiTang_Fnc, 
-                       ub = [5,5,5,5], 
-                       lb = [-5,-5,-5,-5], 
+                       ub = [5,5], 
+                       lb = [-5,-5], 
                        Sense = 'min', 
                        Crossover = 'Quadratic')
   R = G1.GA()
@@ -67,8 +67,8 @@ Contains a *class* for optimizing analytic functions utilizing a **genetic algor
   InitialSolutions = numpy.vstack([10*z/sum(z) for z in InitialSolutions])
   G2 = GeneticOptimizer(InitialSolutions = InitialSolutions, 
                        Objective = BoothsFnc, 
-                       ub = [10,10,10,10], 
-                       lb = [0,0,0,0], 
+                       ub = [10,10,10], 
+                       lb = [0,0,0], 
                        Sense = 'min', 
                        MutationType = 'Sum Constraint',
                        Crossover = 'Weighted Average')
