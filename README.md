@@ -35,6 +35,9 @@ Contains a *class* for optimizing analytic functions utilizing a **genetic algor
 
 > **maxIterations**: The number of generations before algorithm termination [Default: `250`]
 
+### Outputs
+There are **two** outputs from `GeneticOptimizer.GA()`: The first is the *optimal solution* and the *optimal value*, and the second is the *best and average value at each generation*.
+
 ### Examples
 
   ###### Constrained Optimization
