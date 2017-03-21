@@ -68,3 +68,7 @@ The GeneticOptimizer class requires several inputs:
                        Crossover = 'Weighted Average')
   R = G2.GA()
   ```
+
+## Reference
+
+Adewuya, A. (1996) "New Methods in Genetic Search with Real-Valued Chromosomes". Submitted to the Department of Mechanical Engineering in Partial Fulfillment of the Requirements for the Degree of Master of Science in Mechanical Engineering at the Massachusetts Institute of Technology. pp. 31-52.
