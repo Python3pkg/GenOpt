@@ -1,5 +1,5 @@
 # GenOpt
-Contains a class for optimizing analytic functions utilizing a genetic algorithm.
+Contains a *class* for optimizing analytic functions utilizing a **genetic algorithm**.
 
 ## Installation
   ```
@@ -15,27 +15,29 @@ Contains a class for optimizing analytic functions utilizing a genetic algorithm
 ## Usage
 
 ### Arguments
-The GeneticOptimizer class requires several inputs:
+*The GeneticOptimizer class requires several inputs:*
 
-**InitialSolutions**: An array of initial solutions. If you need a summary constraint to be respected (e.g. x1+x2 = 1) then each initial solution must conform to the constraint.
+> **InitialSolutions**: An array of initial solutions. If you need a summary constraint to be respected (e.g. x1+x2 = 1) then each initial solution must conform to the constraint.
 
-**Objective**: The objective function to be optimized. 
+> **Objective**: The objective function to be optimized. 
 
-**lb**: List of lower bounds for each variable
+> **lb**: List of lower bounds for each variable
 
-**ub**: List of upper bounds for each variable
+> **ub**: List of upper bounds for each variable
 
-**MutationType**: Choice of `'Random'` or `'Sum Constraint'`. The former uniformly randomly assigns a gene to between lb and ub. The latter does the same and then repairs the rest of the solution to respect a linear constraint. 
+> **MutationType**: Choice of `'Random'` or `'Sum Constraint'`. The former uniformly randomly assigns a gene to between lb and ub. The latter does the same and then repairs the rest of the solution to respect a linear constraint. 
 
-**MutationRate** = The rate at which genes are mutated [Default: `.01`]
+> **MutationRate** = The rate at which genes are mutated [Default: `.01`]
 
-**Sense**: `'min'` or `'max'` [Default: `'min'`]
+> **Sense**: `'min'` or `'max'` [Default: `'min'`]
 
-**Crossover**: Choice of `'Quadratic'`, `'Heuristic'`, and `'Weighted Average'`. Quadratic is typically best, and Weighted Average is the only one that can respect a linear constraint (use in conjunction with MutationType = 'Sum Constraint') [Default: `'Quadratic'`]
+> **Crossover**: Choice of `'Quadratic'`, `'Heuristic'`, and `'Weighted Average'`. Quadratic is typically best, and Weighted Average is the only one that can respect a linear constraint (use in conjunction with MutationType = 'Sum Constraint') [Default: `'Quadratic'`]
 
-**maxIterations**: The number of generations before algorithm termination [Default: `250`]
+> **maxIterations**: The number of generations before algorithm termination [Default: `250`]
 
 ### Examples
+
+  ###### Constrained Optimization
   ```
   import numpy
   from GenOpt import GeneticOptimizer
@@ -54,6 +56,7 @@ The GeneticOptimizer class requires several inputs:
   R = G1.GA()
   ```
   
+  ###### Unconstrained Optimization
   ```
   import numpy
   from GenOpt import GeneticOptimizer
