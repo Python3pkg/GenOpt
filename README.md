@@ -37,6 +37,7 @@ The GeneticOptimizer class requires several inputs:
 
 ### Examples
   ```
+  import numpy
   from GenOpt import GeneticOptimizer
   def StyblinskiTang_Fnc(x):
       return (x[:, 0]**4-16*x[:, 0]**2 + 5*x[:, 0])/2.0 + (x[:, 1]**4-16*x[:, 1]**2 + 5*x[:, 1])/2.0
@@ -54,6 +55,8 @@ The GeneticOptimizer class requires several inputs:
   ```
   
   ```
+  import numpy
+  from GenOpt import GeneticOptimizer
   ##Booths Function but with an additional slack variable to show the constraint feature.
   def BoothsFnc(x):
       return (x[:, 0] + 2*x[:, 1] - 7)**2 + (2*x[:, 0] + x[:, 1] - 5)**2
