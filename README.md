@@ -2,8 +2,10 @@
 Contains a *class* for optimizing analytic functions utilizing a **genetic algorithm**.
 
 ## Installation
+
+  Installation via `pip`
   ```
-  pip install GenOpt
+  $ pip install GenOpt
   ```
   
 ### Dependencies
