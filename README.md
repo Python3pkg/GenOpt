@@ -25,7 +25,7 @@ Contains a *class* for optimizing analytic functions utilizing a **genetic algor
 
 > **ub**: List of upper bounds for each variable
 
-> **MutationType**: Choice of `'Random'` or `'Sum Constraint'`. The former uniformly randomly assigns a gene to between lb and ub. The latter does the same and then repairs the rest of the solution to respect a linear constraint. 
+> **MutationType**: Choice of `'Random'` or `'Sum Constraint'`. The former uniformly randomly assigns a gene to between lb and ub. The latter does the same and then repairs the rest of the solution to respect a linear constraint. [Default: `'Random'`] 
 
 > **MutationRate** = The rate at which genes are mutated [Default: `.01`]
 
