@@ -43,7 +43,7 @@ There are **two** outputs from `GeneticOptimizer.GA()`: The first is the *optima
 ### Examples
 
   ###### Unconstrained Optimization
-  ```
+  ```python
   import numpy
   from GenOpt import GeneticOptimizer
   def StyblinskiTang_Fnc(x):
@@ -60,7 +60,7 @@ There are **two** outputs from `GeneticOptimizer.GA()`: The first is the *optima
   ```
   
   ###### Constrained Optimization
-  ```
+  ```python
   import numpy
   from GenOpt import GeneticOptimizer
   ##Booths Function but with an additional slack variable to show the constraint feature.
