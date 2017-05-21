@@ -35,7 +35,7 @@ class GeneticOptimizer:
         """Optimizes the objective function. Returns two objects: a tuple of the optimal variables and optimal value, and
            an object detailing the best and average score at each iteration."""
         Fitness = self.Objective(self.InitialSolutions)
-        Sol_Fit = zip(self.InitialSolutions, Fitness)
+        Sol_Fit = list(zip(self.InitialSolutions, Fitness))
         Iterations = 0
         self.SolMetrics = []
         while Iterations < self.maxIterations:
@@ -48,7 +48,7 @@ class GeneticOptimizer:
                     Sol_Fit = Sol_Fit[:-self.num_sols/4]
                 else:
                     Sol_Fit = Sol_Fit[self.num_sols/4:]
-                IndexPairs = self.CreatePairs(range(self.num_sols-self.num_sols/4), 3)
+                IndexPairs = self.CreatePairs(list(range(self.num_sols-self.num_sols/4)), 3)
                 NextGenSols = numpy.empty((self.num_sols/4, len(self.InitialSolutions[0])))
                 for i, (Index1, Index2, Index3) in enumerate(IndexPairs):
                     Child = self.Crossover_Quadratic(Sol_Fit[Index1], Sol_Fit[Index2], Sol_Fit[Index3])
@@ -60,7 +60,7 @@ class GeneticOptimizer:
                 else:
                     Sol_Fit = Sol_Fit[self.num_sols/2:]
                     
-                IndexPairs = self.CreatePairs(range(self.num_sols/2), 2)
+                IndexPairs = self.CreatePairs(list(range(self.num_sols/2)), 2)
                 NextGenSols = numpy.empty((self.num_sols/2, len(self.InitialSolutions[0])))
                 
                 i = 0
@@ -88,7 +88,7 @@ class GeneticOptimizer:
                 self.SolMetrics.append( (min(Fitness), numpy.mean(Fitness)) )  
             else:
                 self.SolMetrics.append( (max(Fitness), numpy.mean(Fitness)) )
-            New_Sol_Fit = zip(NextGenSols, Fitness)
+            New_Sol_Fit = list(zip(NextGenSols, Fitness))
             Sol_Fit.extend(New_Sol_Fit)
     
             Iterations += 1
@@ -143,13 +143,16 @@ class GeneticOptimizer:
             ##Recursion until an acceptable answer is made OR w = 10 and randomly assign
             return self._GetHeuristicPoint(Better, Worse, lb, ub, r/2.0, w+1)           
            
-    def Crossover_Quadratic(self, (Sol1, f1), (Sol2, f2), (Sol3, f3)):
+    def Crossover_Quadratic(self, xxx_todo_changeme, xxx_todo_changeme1, xxx_todo_changeme2):
         """Takes the fitness scores of the three parents and finds the point most likely to maximize fitness using basic calculus.
            If the resulting solution is infeasible, the heuristic crossover is used on the two best parents.
            It's an obscure crossover but very effective. It is found in a masters MIT thesis here:
            https://dspace.mit.edu/bitstream/handle/1721.1/10930/35651641-MIT.pdf?sequence=2"""
+        (Sol1, f1) = xxx_todo_changeme
+        (Sol2, f2) = xxx_todo_changeme1
+        (Sol3, f3) = xxx_todo_changeme2
         Child = numpy.empty((len(Sol1), ))
-        for i, (s1, s2, s3) in enumerate(zip(Sol1, Sol2, Sol3)):
+        for i, (s1, s2, s3) in enumerate(list(zip(Sol1, Sol2, Sol3))):
             a_j = (1.0/(s3-s2))*( (f3-f1)/float(s3-s1) - (f2-f1)/float(s2-s1) )
             b_j = (f2-f1)/float(s2-s1) - a_j*(s2+s1)
             CriticalPoint = -b_j/(2.0*a_j)
@@ -183,10 +186,12 @@ class GeneticOptimizer:
         Child = Beta*Sol1+(1-Beta)*Sol2
         return Child
 
-    def Crossover_Heuristic(self, (Sol1, f1), (Sol2, f2), lb, ub, Sense):
+    def Crossover_Heuristic(self, xxx_todo_changeme3, xxx_todo_changeme4, lb, ub, Sense):
         """Uses this formula: r*(Better-Worse)+Better, where r is a random number between 0 and 1"""
+        (Sol1, f1) = xxx_todo_changeme3
+        (Sol2, f2) = xxx_todo_changeme4
         Child = numpy.empty((len(Sol1), ))
-        for i, (s1, s2) in enumerate(zip(Sol1, Sol2)):
+        for i, (s1, s2) in enumerate(list(zip(Sol1, Sol2))):
             if ((Sense == 'min') & (f1<f2)) or ((Sense == 'max') & (f1>f2)):
                 Child[i] = self._GetHeuristicPoint(s1, s2, lb[i], ub[i], numpy.random.uniform(), 1)
             else:
